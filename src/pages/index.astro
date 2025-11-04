@@ -13,37 +13,286 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<h1 class="hero-title">⚔️ Welcome to the Demon Slayer Corps</h1>
+				<p class="hero-subtitle">鬼滅の刃 - Kimetsu no Yaiba</p>
+			</section>
+
+			<section class="intro">
+				<p class="lead">
+					Join the ranks of the <strong>Demon Slayer Corps</strong> and master the ancient breathing techniques
+					passed down through generations. In a world where demons lurk in the shadows, only the strongest
+					and most determined warriors can protect humanity.
+				</p>
+			</section>
+
+			<section class="breathing-techniques">
+				<h2>🌊 Breathing Techniques</h2>
+				<p>
+					The foundation of every Demon Slayer's power lies in their mastery of breathing styles.
+					Each technique channels the user's breath to enhance their physical abilities and unleash
+					devastating attacks against demons.
+				</p>
+				
+				<div class="technique-grid">
+					<div class="technique-card water">
+						<h3>💧 Water Breathing</h3>
+						<p>The most versatile and adaptive breathing style. Flows like water, adapts to any situation.</p>
+						<span class="master">Master: Giyu Tomioka</span>
+					</div>
+					
+					<div class="technique-card flame">
+						<h3>🔥 Flame Breathing</h3>
+						<p>Overwhelming offensive power that burns through any obstacle with passion and determination.</p>
+						<span class="master">Master: Kyojuro Rengoku</span>
+					</div>
+					
+					<div class="technique-card thunder">
+						<h3>⚡ Thunder Breathing</h3>
+						<p>Lightning-fast strikes that overwhelm enemies before they can react. Speed is everything.</p>
+						<span class="master">Master: Zenitsu Agatsuma</span>
+					</div>
+					
+					<div class="technique-card flower">
+						<h3>🌸 Flower Breathing</h3>
+						<p>Graceful yet deadly techniques derived from Water Breathing with enhanced flexibility.</p>
+						<span class="master">Master: Kanao Tsuyuri</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="mission">
+				<h2>⚔️ Our Mission</h2>
+				<div class="mission-content">
+					<blockquote>
+						"The bond between those who risk their lives to fight side by side is much stronger than blood relations."
+					</blockquote>
+					<p>
+						The Demon Slayer Corps has protected humanity for centuries, operating in the shadows
+						to eliminate the demon threat. Our warriors train rigorously to master their breathing
+						techniques and wield Nichirin blades forged from sun-absorbing ore.
+					</p>
+					<ul class="mission-list">
+						<li>🗡️ <strong>Eliminate Demons</strong> - Hunt down and destroy demons terrorizing innocent people</li>
+						<li>🛡️ <strong>Protect Humanity</strong> - Shield civilians from the supernatural threat</li>
+						<li>📚 <strong>Preserve Knowledge</strong> - Pass down breathing techniques to new generations</li>
+						<li>🤝 <strong>Support Each Other</strong> - Build unbreakable bonds between demon slayers</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="chronicles">
+				<h2>📜 Chronicles & Training Records</h2>
+				<p>
+					Explore our archives to learn from the experiences of veteran demon slayers and
+					discover new techniques to enhance your abilities.
+				</p>
+				<a href="/blog" class="cta-button">
+					Read the Chronicles →
+				</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 3em 0 2em;
+		border-bottom: 2px solid rgba(200, 16, 46, 0.2);
+		margin-bottom: 2em;
+	}
+	
+	.hero-title {
+		font-size: 2.5em;
+		margin-bottom: 0.3em;
+		background: linear-gradient(135deg, var(--accent) 0%, rgb(var(--water-blue)) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.hero-subtitle {
+		font-size: 1.3em;
+		color: var(--accent);
+		font-weight: 600;
+		margin: 0;
+	}
+	
+	.intro {
+		margin: 2em 0;
+	}
+	
+	.lead {
+		font-size: 1.15em;
+		line-height: 1.8;
+		color: rgb(var(--gray-dark));
+	}
+	
+	.breathing-techniques {
+		margin: 3em 0;
+	}
+	
+	.breathing-techniques h2 {
+		text-align: center;
+		margin-bottom: 1em;
+		color: var(--accent);
+	}
+	
+	.technique-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5em;
+		margin: 2em 0;
+	}
+	
+	.technique-card {
+		padding: 1.5em;
+		border-radius: 12px;
+		border: 2px solid;
+		transition: all 0.3s ease;
+		background: white;
+	}
+	
+	.technique-card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--box-shadow);
+	}
+	
+	.technique-card.water {
+		border-color: rgb(var(--water-blue));
+	}
+	
+	.technique-card.water:hover {
+		background: rgba(var(--water-blue), 0.05);
+	}
+	
+	.technique-card.flame {
+		border-color: rgb(var(--flame-orange));
+	}
+	
+	.technique-card.flame:hover {
+		background: rgba(var(--flame-orange), 0.05);
+	}
+	
+	.technique-card.thunder {
+		border-color: rgb(var(--thunder-yellow));
+	}
+	
+	.technique-card.thunder:hover {
+		background: rgba(var(--thunder-yellow), 0.05);
+	}
+	
+	.technique-card.flower {
+		border-color: #ff69b4;
+	}
+	
+	.technique-card.flower:hover {
+		background: rgba(255, 105, 180, 0.05);
+	}
+	
+	.technique-card h3 {
+		margin-top: 0;
+		margin-bottom: 0.5em;
+		font-size: 1.3em;
+	}
+	
+	.technique-card p {
+		margin-bottom: 1em;
+		color: rgb(var(--gray));
+		line-height: 1.6;
+	}
+	
+	.technique-card .master {
+		display: block;
+		font-size: 0.9em;
+		font-style: italic;
+		color: rgb(var(--gray));
+	}
+	
+	.mission {
+		margin: 3em 0;
+		padding: 2em;
+		background: linear-gradient(135deg, rgba(200, 16, 46, 0.05) 0%, rgba(32, 118, 189, 0.05) 100%);
+		border-radius: 12px;
+		border-left: 4px solid var(--accent);
+	}
+	
+	.mission h2 {
+		color: var(--accent);
+		margin-top: 0;
+	}
+	
+	.mission-content blockquote {
+		font-size: 1.2em;
+		font-style: italic;
+		color: rgb(var(--gray-dark));
+		margin: 1em 0 1.5em;
+	}
+	
+	.mission-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.5em 0;
+	}
+	
+	.mission-list li {
+		padding: 0.8em 0;
+		border-bottom: 1px solid rgba(var(--gray-light), 0.5);
+		font-size: 1.05em;
+	}
+	
+	.mission-list li:last-child {
+		border-bottom: none;
+	}
+	
+	.chronicles {
+		text-align: center;
+		margin: 3em 0 2em;
+		padding: 2em;
+	}
+	
+	.chronicles h2 {
+		color: var(--accent);
+		margin-bottom: 0.5em;
+	}
+	
+	.cta-button {
+		display: inline-block;
+		margin-top: 1.5em;
+		padding: 1em 2.5em;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 1.1em;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+	}
+	
+	.cta-button:hover {
+		background: var(--accent-dark);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(200, 16, 46, 0.4);
+	}
+	
+	@media (max-width: 720px) {
+		.hero-title {
+			font-size: 1.8em;
+		}
+		
+		.hero-subtitle {
+			font-size: 1.1em;
+		}
+		
+		.technique-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.mission {
+			padding: 1.5em;
+		}
+	}
+</style>

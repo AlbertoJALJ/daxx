@@ -5,30 +5,54 @@ import Header from "../components/Header.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
-const pageTitle = "Sobre Nosotros";
-const skills = [
-	"Diseño Web",
-	"Desarrollo Frontend",
-	"Desarrollo Backend",
-	"Marketing Digital",
-	"SEO",
-	"UX/UI",
+const pageTitle = "About the Corps";
+const breathingStyles = [
+	"💧 Water Breathing",
+	"🔥 Flame Breathing",
+	"⚡ Thunder Breathing",
+	"🌸 Flower Breathing",
+	"🪨 Stone Breathing",
+	"🌫️ Mist Breathing",
+	"🐍 Serpent Breathing",
+	"🎵 Sound Breathing",
+	"🦋 Insect Breathing",
 ];
-const teamMembers = [
+const hashiras = [
 	{
-		name: "María González",
-		role: "CEO & Fundadora",
-		bio: "Con más de 10 años de experiencia en el sector tecnológico, María fundó la empresa con la visión de crear soluciones digitales innovadoras.",
+		name: "Giyu Tomioka",
+		role: "💧 Water Hashira",
+		bio: "The stoic Water Hashira, master of all Water Breathing forms. Known for his calm demeanor and unwavering dedication to protecting humanity.",
+		emoji: "🌊"
 	},
 	{
-		name: "Carlos Rodríguez",
-		role: "Director de Tecnología",
-		bio: "Especialista en arquitectura de software y nuevas tecnologías, Carlos lidera nuestro equipo de desarrollo.",
+		name: "Kyojuro Rengoku",
+		role: "🔥 Flame Hashira",
+		bio: "The passionate Flame Hashira with an indomitable spirit. His fiery determination inspires all demon slayers to never give up.",
+		emoji: "🔥"
 	},
 	{
-		name: "Ana Martínez",
-		role: "Diseñadora UX/UI",
-		bio: "Apasionada por crear experiencias de usuario excepcionales, Ana combina creatividad y funcionalidad en cada proyecto.",
+		name: "Shinobu Kocho",
+		role: "🦋 Insect Hashira",
+		bio: "The graceful Insect Hashira who specializes in poison-based techniques. Her gentle appearance conceals deadly precision.",
+		emoji: "🦋"
+	},
+	{
+		name: "Tengen Uzui",
+		role: "🎵 Sound Hashira",
+		bio: "The flamboyant Sound Hashira, former shinobi with exceptional hearing. Combines explosives and dual blades for devastating attacks.",
+		emoji: "💎"
+	},
+	{
+		name: "Mitsuri Kanroji",
+		role: "💗 Love Hashira",
+		bio: "The Love Hashira with superhuman flexibility and strength. Her compassionate nature doesn't diminish her fierce combat abilities.",
+		emoji: "💗"
+	},
+	{
+		name: "Gyomei Himejima",
+		role: "🪨 Stone Hashira",
+		bio: "The strongest Hashira, wielding Stone Breathing techniques. Despite being blind, his heightened senses make him formidable.",
+		emoji: "⛰️"
 	},
 ];
 ---
@@ -41,144 +65,329 @@ const teamMembers = [
 			description={SITE_DESCRIPTION}
 		/>
 		<style>
-			.about-section {
-				margin-bottom: 2rem;
+			.page-hero {
+				text-align: center;
+				padding: 2em 0;
+				border-bottom: 3px solid var(--accent);
+				margin-bottom: 2.5em;
+				background: linear-gradient(135deg, rgba(200, 16, 46, 0.05) 0%, rgba(32, 118, 189, 0.05) 100%);
+				border-radius: 12px;
 			}
+			
+			.page-hero h1 {
+				margin-bottom: 0.3em;
+				color: var(--accent);
+			}
+			
+			.subtitle {
+				font-size: 1.2em;
+				color: rgb(var(--gray));
+				font-style: italic;
+			}
+			
+			.about-section {
+				margin-bottom: 3rem;
+			}
+			
+			.about-section h2 {
+				color: var(--accent);
+				border-bottom: 2px solid rgba(200, 16, 46, 0.2);
+				padding-bottom: 0.5em;
+				margin-bottom: 1em;
+			}
+			
+			.section-intro {
+				font-size: 1.1em;
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1.5em;
+				font-weight: 500;
+			}
+			
+			.intro {
+				background: white;
+				padding: 2em;
+				border-radius: 12px;
+				border-left: 4px solid var(--accent);
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			}
+			
 			.skills-list {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 1rem;
-				margin: 1rem 0;
+				margin: 1.5rem 0;
 			}
+			
 			.skill-tag {
-				background-color: #4c1d95;
+				background: linear-gradient(135deg, var(--accent) 0%, rgb(var(--water-blue)) 100%);
 				color: white;
-				padding: 0.5rem 1rem;
+				padding: 0.6rem 1.2rem;
 				border-radius: 2rem;
-				font-weight: bold;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				box-shadow: 0 2px 8px rgba(200, 16, 46, 0.3);
 			}
+			
+			.skill-tag:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+			}
+			
 			.team-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 				gap: 2rem;
 				margin-top: 2rem;
 			}
+			
 			.team-member {
-				border: 1px solid #e5e7eb;
-				border-radius: 0.5rem;
+				border: 2px solid var(--accent);
+				border-radius: 12px;
 				padding: 1.5rem;
-				background-color: #f9fafb;
+				background: white;
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
 			}
+			
+			.team-member::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 4px;
+				background: linear-gradient(90deg, 
+					var(--accent) 0%, 
+					rgb(var(--water-blue)) 50%, 
+					rgb(var(--flame-orange)) 100%);
+			}
+			
+			.team-member:hover {
+				transform: translateY(-5px);
+				box-shadow: var(--box-shadow);
+			}
+			
+			.hashira-emoji {
+				font-size: 3em;
+				text-align: center;
+				margin-bottom: 0.5em;
+			}
+			
 			.team-member h3 {
 				margin-top: 0;
-				color: #4c1d95;
+				color: var(--accent);
+				font-size: 1.4em;
+				text-align: center;
 			}
+			
 			.team-member .role {
-				font-weight: bold;
-				color: #6b7280;
+				font-weight: 700;
+				color: rgb(var(--water-blue));
 				margin-bottom: 1rem;
 				display: block;
+				text-align: center;
+				font-size: 1.1em;
 			}
-			.services-grid {
+			
+			.team-member p {
+				color: rgb(var(--gray));
+				line-height: 1.6;
+			}
+			
+			.ranking {
+				background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(200, 16, 46, 0.1) 100%);
+				padding: 2em;
+				border-radius: 12px;
+			}
+			
+			.rank-list {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-				gap: 2rem;
-				margin-top: 2rem;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1.5em;
+				margin-top: 1.5em;
+			}
+			
+			.rank-item {
+				text-align: center;
+				padding: 1.5em;
+				background: white;
+				border-radius: 8px;
+				border: 2px solid rgba(200, 16, 46, 0.2);
+			}
+			
+			.rank-badge {
+				display: inline-block;
+				padding: 0.5em 1.5em;
+				border-radius: 20px;
+				font-weight: 700;
+				font-size: 1.2em;
+				margin-bottom: 0.5em;
+			}
+			
+			.rank-badge.kinoe {
+				background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+				color: #000;
+			}
+			
+			.rank-badge.kinoto {
+				background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%);
+				color: #000;
+			}
+			
+			.rank-badge.heibou {
+				background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
+				color: white;
+			}
+			
+			.rank-badge.teihen {
+				background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
+				color: white;
+			}
+			
+			.final-selection {
+				background: linear-gradient(135deg, rgba(106, 13, 173, 0.1) 0%, rgba(200, 16, 46, 0.1) 100%);
+				padding: 2em;
+				border-radius: 12px;
+				border: 2px solid var(--accent);
+			}
+			
+			.contact-box {
+				background: white;
+				padding: 1.5em;
+				border-radius: 8px;
+				margin-top: 1.5em;
+				border-left: 4px solid var(--accent);
+			}
+			
+			.contact-box p {
+				margin: 0.5em 0;
+			}
+			
+			.warning {
+				color: var(--accent);
+				font-weight: 700;
+				margin-top: 1em !important;
+				padding-top: 1em;
+				border-top: 2px solid rgba(200, 16, 46, 0.2);
+			}
+			
+			@media (max-width: 720px) {
+				.team-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				.rank-list {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>{pageTitle}</h1>
-			<div class="services-grid">
-				<ServiceCard
-					title="Diseño Web"
-					description="Diseño web"
-					icon="🌐"
-				/>
-				<ServiceCard
-					title="Diseño Web"
-					description="Diseño web"
-					icon="🌐"
-				/>
-				<ServiceCard
-					title="Diseño Web"
-					description="Diseño web"
-					icon="🌐"
-				/>
+			<div class="page-hero">
+				<h1>⚔️ {pageTitle}</h1>
+				<p class="subtitle">Meet the elite warriors of the Demon Slayer Corps</p>
 			</div>
 
-			<section class="about-section">
-				<h2>Nuestra Misión</h2>
+			<section class="about-section intro">
+				<h2>🏯 Our History</h2>
 				<p>
-					En <strong>Daxx</strong>, nos dedicamos a transformar ideas
-					en experiencias digitales excepcionales. Nuestro objetivo es
-					ayudar a empresas de todos los tamaños a establecer una
-					presencia digital sólida y efectiva que impulse su
-					crecimiento y éxito.
+					For over a thousand years, the <strong>Demon Slayer Corps</strong> has stood as humanity's shield
+					against the demon threat that emerged from the shadows. Founded in the Heian period, our organization
+					operates outside government jurisdiction, funded by benefactors who understand the reality of the
+					supernatural menace.
 				</p>
 				<p>
-					Fundada en 2020, nuestra empresa ha crecido rápidamente
-					gracias a nuestro compromiso con la excelencia, la
-					innovación y la satisfacción del cliente. Trabajamos con las
-					tecnologías más avanzadas para crear soluciones
-					personalizadas que se adapten perfectamente a las
-					necesidades específicas de cada cliente.
+					We are an army of ghost soldiers—unseen by the public, unknown to history books, yet essential
+					to the survival of mankind. Our warriors number in the hundreds, each trained in the ancient art
+					of breathing techniques and wielding Nichirin blades forged from sun-absorbing ore.
 				</p>
 			</section>
 
 			<section class="about-section">
-				<h2>Nuestras Especialidades</h2>
+				<h2>🌊 Breathing Techniques</h2>
+				<p class="section-intro">
+					All combat forms derive from <strong>Sun Breathing</strong>, the original technique created centuries ago.
+					Modern breathing styles evolved from this foundation, each adapted to individual strengths and circumstances.
+				</p>
 				<div class="skills-list">
 					{
-						skills.map((skill) => (
-							<span class="skill-tag">{skill}</span>
+						breathingStyles.map((style) => (
+							<span class="skill-tag">{style}</span>
 						))
 					}
 				</div>
 				<p>
-					Nuestro equipo multidisciplinario combina creatividad y
-					conocimiento técnico para ofrecer soluciones integrales que
-					abarcan desde el diseño inicial hasta la implementación y
-					mantenimiento continuo.
+					Each breathing style enhances the user's physical capabilities beyond human limits—increasing strength,
+					speed, and stamina. Mastery requires years of intense training under experienced mentors who have
+					perfected their own techniques through countless battles.
 				</p>
 			</section>
 
 			<section class="about-section">
-				<h2>Nuestro Equipo</h2>
-				<p>
-					Contamos con un equipo de profesionales apasionados y
-					altamente cualificados, comprometidos con ofrecer resultados
-					excepcionales en cada proyecto.
+				<h2>⭐ The Hashira - Pillars of the Corps</h2>
+				<p class="section-intro">
+					The <strong>Hashira</strong> represent the highest rank within the Demon Slayer Corps. These nine warriors
+					are the most powerful demon slayers, each a master of their respective breathing style. They serve as the
+					frontline defense against the most dangerous demons and as mentors to younger slayers.
 				</p>
 
 				<div class="team-grid">
 					{
-						teamMembers.map((member) => (
-							<div class="team-member">
-								<h3>{member.name}</h3>
-								<span class="role">{member.role}</span>
-								<p>{member.bio}</p>
+						hashiras.map((hashira) => (
+							<div class="team-member hashira-card">
+								<div class="hashira-emoji">{hashira.emoji}</div>
+								<h3>{hashira.name}</h3>
+								<span class="role">{hashira.role}</span>
+								<p>{hashira.bio}</p>
 							</div>
 						))
 					}
 				</div>
 			</section>
 
-			<section class="about-section">
-				<h2>Contacto</h2>
+			<section class="about-section ranking">
+				<h2>📊 Corps Ranking System</h2>
+				<div class="rank-list">
+					<div class="rank-item">
+						<span class="rank-badge kinoe">甲 Kinoe</span>
+						<p>Highest rank below Hashira</p>
+					</div>
+					<div class="rank-item">
+						<span class="rank-badge kinoto">乙 Kinoto</span>
+						<p>Second highest rank</p>
+					</div>
+					<div class="rank-item">
+						<span class="rank-badge heibou">丙 Heibou</span>
+						<p>Third rank</p>
+					</div>
+					<div class="rank-item">
+						<span class="rank-badge teihen">丁 Teihen</span>
+						<p>Starting rank</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="about-section final-selection">
+				<h2>🌸 Join the Corps</h2>
 				<p>
-					¿Interesado en trabajar con nosotros? Estamos aquí para
-					ayudarte a llevar tu presencia digital al siguiente nivel.
-					Contáctanos hoy mismo para discutir tu proyecto.
+					To become a demon slayer, candidates must survive the brutal <strong>Final Selection</strong>—a seven-day
+					ordeal on Mount Fujikasane where demons are trapped. Only the strongest, most skilled candidates survive
+					to join our ranks.
 				</p>
 				<p>
-					<strong>Email:</strong> info@daxx.com<br />
-					<strong>Teléfono:</strong> +34 123 456 789<br />
-					<strong>Dirección:</strong> Calle Principal 123, 28001 Madrid,
-					España
+					If you possess the determination to face demons, the will to protect humanity, and the strength to
+					master breathing techniques, the Demon Slayer Corps awaits. Your journey begins with training under
+					a cultivator who will prepare you for Final Selection.
 				</p>
+				<div class="contact-box">
+					<p><strong>⚔️ Ubuyashiki Estate</strong></p>
+					<p><strong>📍 Location:</strong> Hidden within the mountains of Japan</p>
+					<p><strong>🦅 Contact:</strong> Via Kasugai crow messenger</p>
+					<p class="warning">⚠️ Warning: This path is dangerous. Many do not survive.</p>
+				</div>
 			</section>
 		</main>
 		<Footer />
