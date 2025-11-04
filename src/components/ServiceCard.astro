@@ -1,0 +1,26 @@
+---
+// src/components/ServiceCard.astro
+interface Props {
+  title: string;
+  description: string;
+  icon: string; // emoji o nombre de icono
+}
+const { title, description, icon } = Astro.props;
+---
+
+<div class="service-card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <p>{icon}</p>
+</div>
+
+<style>
+  .service-card {
+    background: var(--accent);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
